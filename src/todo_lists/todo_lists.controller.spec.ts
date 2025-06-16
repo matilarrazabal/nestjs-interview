@@ -8,9 +8,10 @@ describe('TodoListsController', () => {
   let todoListsController: TodoListsController;
 
   beforeEach(async () => {
+
     todoListService = new TodoListsService([
-      { id: 1, name: 'test1' },
-      { id: 2, name: 'test2' },
+      { id: 1, name: 'test1', tasks: [] },
+      { id: 2, name: 'test2', tasks: [] },
     ]);
 
     const app: TestingModule = await Test.createTestingModule({
@@ -24,8 +25,8 @@ describe('TodoListsController', () => {
   describe('index', () => {
     it('should return the list of todolist', () => {
       expect(todoListsController.index()).toEqual([
-        { id: 1, name: 'test1' },
-        { id: 2, name: 'test2' },
+        { id: 1, name: 'test1', tasks: []  },
+        { id: 2, name: 'test2', tasks: []  },
       ]);
     });
   });
@@ -35,6 +36,7 @@ describe('TodoListsController', () => {
       expect(todoListsController.show({ todoListId: 1 })).toEqual({
         id: 1,
         name: 'test1',
+        tasks: [], 
       });
     });
   });
