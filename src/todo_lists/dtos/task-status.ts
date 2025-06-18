@@ -1,5 +1,5 @@
-enum Status {
-    Pending,
-    InProgress,
-    Completed,
+export enum Status {
+    Pending = 'Pending',
+    InProgress = 'InProgress',
+    Completed = 'Completed',
 }

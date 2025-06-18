@@ -1,7 +1,9 @@
+import { Status } from "src/todo_lists/dtos/task-status";
+
 export interface Task {
   id: number;
   name: string;
-  descripcion: string;
+  description: string;
   status: Status;
 }
 
