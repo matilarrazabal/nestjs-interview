@@ -36,12 +36,11 @@ export class TodoListsService {
   }
 
   update(id: number, dto: UpdateTodoListDto): TodoList {
-    const todolist = this.todolists.find((x) => x.id == Number(id));
+    const todolistId = this.todolists.findIndex((x) => x.id == Number(id));
 
     // Update the record
-    todolist.name = dto.name;
-
-    return todolist;
+    this.todolists[todolistId].name = dto.name;
+    return this.todolists[todolistId];
   }
 
   delete(id: number): void {
