@@ -45,7 +45,7 @@ describe('TodoListsController', () => {
     it('should update the todolist with the given id', () => {
       expect(
         todoListsController.update({ todoListId: 1 }, { name: 'modified' }),
-      ).toEqual({ id: 1, name: 'modified' });
+      ).toEqual({ id: 1, name: 'modified' , tasks: []});
 
       expect(todoListService.get(1).name).toEqual('modified');
     });
@@ -56,6 +56,7 @@ describe('TodoListsController', () => {
       expect(todoListsController.create({ name: 'new' })).toEqual({
         id: 3,
         name: 'new',
+        tasks: []
       });
 
       expect(todoListService.all().length).toBe(3);
